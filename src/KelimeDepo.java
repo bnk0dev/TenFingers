@@ -1,6 +1,5 @@
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class KelimeDepo {
 
@@ -8,10 +7,10 @@ public class KelimeDepo {
     static String gamerName; //Kayıtlı kullanıcı tekrar oynadıgında skorunu güncellemesi icin ismini girmelidir.
 
     public static void oyunBasla() throws SQLException {
+        Random random = new Random();
         Scanner scan = new Scanner(System.in);
-        String kelime;
-        boolean bak = false; // kullanıcı programdan cıkmak istediginin kontrolünü saglar
-        HashMap<String, String> sozluk = new HashMap<>(); //Yazılması istenen bir çok kelime.
+
+        LinkedHashMap<String, String> sozluk = new LinkedHashMap<>(); //Yazılması istenen bir çok kelime.
         sozluk.put("yuzmek", "yuzmek");
         sozluk.put("yazmak", "yazmak");
         sozluk.put("yemek", "yemek");
@@ -119,30 +118,29 @@ public class KelimeDepo {
         sozluk.put("dakika", "dakika");
         sozluk.put("saniye", "saniye");
         sozluk.put("Armut","Armut");
-        long baslangic = System.currentTimeMillis();
         System.out.println("30 Saniye Süren var. Olabildigince Hizli Ol :)");
 
-        for(String string : sozluk.keySet()) {
-            System.out.print(string + " ");
+        String[] keys = sozluk.keySet().toArray(new String[0]);
+
+        long baslangic = System.currentTimeMillis();
+        long sure = 10000; // 1 dakika = 60000 milisaniye
+
+
+        while (System.currentTimeMillis() - baslangic < sure) {
+            String randomKey = keys[random.nextInt(keys.length)];
+            System.out.println("Kelime: " + randomKey);
+            String kelime = scan.nextLine();
+
+            if (kelime.equalsIgnoreCase(sozluk.get(randomKey))) {
+                toplam++;
+            } else {}
+
         }
-        System.out.println();
-        while(!bak){
-            long bitis = System.currentTimeMillis();
-            kelime = scan.nextLine();
-            for (String write : sozluk.keySet()) { //kelimeleri indexli olarak kontrol etmiyor. Çözülecek
-                if(kelime.equalsIgnoreCase(write)){
-                    toplam++; //Her yazılan dogru kelime icin skor +1
-                }else{}
-            }
-            if(bitis-baslangic>60000){ //Kelimeleri gordugun an itibariyle 30 saniye süren baslamıs olacak.
-                System.out.println("Süre bitti... Skor: " + toplam);
-                System.out.print("Hesap Adınızı giriniz: ");
-                gamerName = scan.nextLine();
-                DbHelper.skorGuncelle(gamerName,toplam);
-                bak = true;
-                toplam = 0;
-                AnaMenu.giris();
-                }
-            }
+        System.out.println("Süre bitti... Skor: " + toplam);
+        System.out.print("Hesap Adınızı giriniz: ");
+        gamerName = scan.nextLine();
+        DbHelper.skorGuncelle(gamerName,toplam);
+        toplam = 0;
+        AnaMenu.giris();
     }
 }
