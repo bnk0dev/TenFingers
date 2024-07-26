@@ -118,7 +118,7 @@ public class KelimeDepo {
         sozluk.put("dakika", "dakika");
         sozluk.put("saniye", "saniye");
         sozluk.put("Armut","Armut");
-        System.out.println("30 Saniye Süren var. Olabildigince Hizli Ol :)");
+        System.out.println("60 Saniye Süren var. Olabildigince Hizli Ol :)");
 
         String[] keys = sozluk.keySet().toArray(new String[0]);
 

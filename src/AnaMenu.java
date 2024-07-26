@@ -18,6 +18,7 @@ public class AnaMenu {
             switch(secim){
                 case "a":
                     DbHelper.oyuncuEkle();
+                    KelimeDepo.oyunBasla();
                 case "y":
                     KelimeDepo.oyunBasla();
                     break;
