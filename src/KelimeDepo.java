@@ -123,7 +123,7 @@ public class KelimeDepo {
         String[] keys = sozluk.keySet().toArray(new String[0]);
 
         long baslangic = System.currentTimeMillis();
-        long sure = 10000; // 1 dakika = 60000 milisaniye
+        long sure = 60000; // 1 dakika = 60000 milisaniye
 
 
         while (System.currentTimeMillis() - baslangic < sure) {
