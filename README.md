@@ -1,17 +1,16 @@
-# TenFingers'a Hoşgeldin!
+# Welcome to TenFingers!
 
-Uygulamayı başlattığında sana kendini test etmen için verilen kelimeleri gördüğün anda 60 saniye süren başlamış olacak.
+When you start the application, the 60-second timer will begin as soon as you see the words to test yourself.
 
-Program basit olarak 2 aşamadan oluşmaktadır.
-- Hesap oluşturarak skorlarını takip etmek
-- Misafir Kullanıcı olarak sadece anlık skorunu görüntüleme
+The program consists of two main stages:
+- **Create an account** to track your scores
+- **Guest User mode** to view only your current score
 
+## Creating an Account
+To add an account, simply press the **Q** key and fill in the required information. Creating an account is useful for breaking your old scores and tracking your progress.
 
-## Hesap Oluşturmak
-Hesap Eklemek için **Q** Tuşuna basmanız ve bilgileri doldurmanız yeterlidir. Eski skorunuzu kırmak, gelişimini takip etmek için hesap oluşturmak faydalı olacaktır.
+## Guest User Entry
+If you prefer not to create an account, you can start the application directly by pressing the **y** key and view your current score. However, if you wish to return, you will need to restart the application.
 
-## Misafir Kullanıcı Girişi
-Hesap oluşturmakla uğraşmadan direkt olarak uygulamayı **y** Tuşu ile başlatabilir ve o anki skorunu görüntüleyebilirsin ama tekrar dönmek istediğinde yeniden başlaman gerekecek.
-
-## Geliştiriciler İçin
-tenfingersSQL klasörü içerisinde Database bulunmaktadır. Projeyi kullanırken kendinize göre konfigüre etmeyi unutmayınız.
+## For Developers
+The database can be found in the `tenfingersSQL` folder. Make sure to configure it according to your needs while using the project.
